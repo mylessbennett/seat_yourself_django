@@ -44,6 +44,7 @@ class Restaurant(models.Model):
     description = models.TextField(null=True)
     opening_time = models.TimeField()
     closing_time = models.TimeField()
+    last_reservation_time = models.TimeField()
 
     def __str__(self):
         return self.name
@@ -72,4 +73,3 @@ class Reservation(models.Model):
         date = self.date.strftime("%Y-%m-%d")
         time = self.time.strftime("%H:%M")
         return "{} {}".format(date, time)
-

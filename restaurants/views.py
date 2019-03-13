@@ -55,7 +55,7 @@ def reservation_create(request, restaurant_id):
         form.save()
         return redirect(reverse('restaurant_show', args=[restaurant.pk]))
     else:
-        context = {'restaurant': restaurant, 'reservation_form': form, 'title': restaurant.name}
+        context = {'restaurant': restaurant, 'reservation_form': form, 'title': restaurant.name, 'reservations': restaurant.reservations.all()}
         return render(request, 'restaurant_details.html', context)
 
 def login_view(request):

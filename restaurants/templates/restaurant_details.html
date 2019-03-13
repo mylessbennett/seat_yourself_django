@@ -4,6 +4,7 @@
     <h2>{{ restaurant.name }}</h2>
     <div class="restaurant_details">
       <p>Hours: {{ restaurant.opening_time }} - {{ restaurant.closing_time }}</p>
+      <p>Last Reservation by: {{restaurant.last_reservation_time}}</p>
       <p>Address: {{ restaurant.address}}</p>
       <p>Phone: {{restaurant.phone}}</p>
       <p>Description:<br> {{restaurant.description}}</p>
@@ -45,6 +46,7 @@
       {% endif %}
       <form method='POST' action="{% url 'reservation_create' restaurant_id=restaurant.pk%}">
         {% csrf_token %}
+        <p>Last Reservation by: {{ restaurant.last_reservation_time }}</p>
         {{ reservation_form.as_p }}
         <input type="submit" value="Place reservation">
       </form>
