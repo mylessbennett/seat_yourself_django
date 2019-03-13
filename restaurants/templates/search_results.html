@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+      {% for restaurant in restaurants %}
+        <li>
+          <a href="{% url 'restaurant_show' id=restaurant.id %}">
+            <img src="{{restaurant.image}}" alt="{{restaurant.name}}">
+            <p>{{restaurant.name}}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
